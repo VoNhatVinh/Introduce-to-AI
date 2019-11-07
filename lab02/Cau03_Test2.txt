@@ -1,0 +1,22 @@
+? is_adult ninetalesII
+? leaf charmanderI
+? own naruto bulbasaurIII
+? evolution Pokemon bulbasaurI
+? win charmanderI bulbasaurII
+? same_gen bulbasaurIII metapodI
+? same_gen X pidgeyI
+? trainer naruto
+? trainer sasuke
+? own ikuo Pokemon
+? can_recruit naruto Pokemon
+? win ninetalesII Pokemon
+? win Pokemon raticateIII
+? same_gen metapodI Pokemon
+? own Who blastoiseIII
+? own ikuo Pokemon
+? fire Pokemon
+? pokemon Pokemon 2
+? pokemon pikachu 1
+? specy Specy raticateIII
+? is_adult Pokemon
+? win Pokemon1 Pokemon2

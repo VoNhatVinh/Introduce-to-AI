@@ -1,0 +1,196 @@
+% -------------------------------------------Facts-----------------------------------------------------
+f female "Queen-Elizabeth-II"
+f male "Prince-Phillip"
+f married "Prince-Phillip" "Queen-Elizabeth-II"
+f married "Queen-Elizabeth-II" "Prince-Phillip"
+
+%Facts: 1st
+f male "Prince-Charles"
+f parent "Queen-Elizabeth-II" "Prince-Charles"
+f parent "Prince-Phillip" "Prince-Charles"
+f divorced "Prince-Charles" "Princess-Diana"
+f divorced "Princess-Diana" "Prince-Charles"
+f married "Prince-Charles" "Camilla-Parker-Bowles"
+f married "Camilla-Parker-Bowles" "Prince-Charles"
+
+%Facts: 12st
+f female "Princess-Anne"
+f parent "Queen-Elizabeth-II" "Princess-Anne"
+f parent "Prince-Phillip" "Princess-Anne"
+f divorced "Princess-Anne" "Captain-Mark-Phillips"
+f divorced "Captain-Mark-Phillips" "Princess-Anne"
+f married "Princess-Anne" "Timothy-Laurence"
+f married "Timothy-Laurence" "Princess-Anne"
+
+%Facts: 6th
+f male "Prince-Andrew"
+f parent "Queen-Elizabeth-II" "Prince-Andrew"
+f parent "Prince-Phillip" "Prince-Andrew"
+
+%Facts: 9th
+f male "Prince-Edward"
+f parent "Queen-Elizabeth-II", "Prince-Edward"
+f parent "Prince-Phillip" "Prince-Edward"
+
+%Facts: 2nd
+f male "Prince-William"
+f parent "Princess-Diana" "Prince-William"
+f parent "Prince-Charles" "Prince-William"
+f married "Prince-William" "Kate-Middleton"
+
+%Facts: 5th
+f male "Prince-Harry"
+f parent "Princess-Diana" "Prince-Harry"
+f parent "Prince-Charles" "Prince-Harry"
+
+%Facts: 13th
+f male "Peter-Phillips"
+f parent "Princess-Anne" "Peter-Phillips"
+f parent "Prince-Mark-Phillips" "Peter-Phillips"
+f married "Peter-Phillips" "Autumn-Kelly"
+f married "Autumn-Kelly" "Peter-Phillips"
+
+%Facts: 16th
+f female "Zara-Phillips"
+f parent "Princess-Anne" "Zara-Phillips"
+f parent "Prince-Mark-Phillips" "Zara-Phillips"
+f married "Zara-Phillips" "Mike-Tindall"
+f married "Mike-Tindall" "Zara-Phillips"
+
+%Facts: 7th
+f female "Princess-Beatrice"
+f parent "Prince-Andrew" "Princess-Beatrice"
+f parent "Sarah-Ferguson" "Princess-Beatrice"
+
+%Facts: 8th
+f female "Princess-Eugenie"
+f parent "Prince-Andrew" "Princess-Eugenie"
+f parent "Sarah-Ferguson" "Princess-Eugenie"
+
+%Facts: 10th
+f male "James-Viscount-Severn"
+f parent "Prince-Edward" "James-Viscount-Severn"
+f parent "Sophie-Rhys-jones" "James-Viscount-Severn"
+
+%Facts: 11th
+f female "Lady-Louise-Mountbatten-Windsor"
+f parent "Prince-Edward" "Lady-Louise-Mountbatten-Windsor"
+f parent "Sophie-Rhys-jones" "Lady-Louise-Mountbatten-Windsor"
+
+%Facts: 3rd
+f male "Prince-George"
+f parent "Prince-William" "Prince-George"
+f parent "Kate-Middleton" "Prince-George"
+
+%Facts: 4th
+f female "Princess-Charlotte"
+f parent "Prince-William" "Princess-Charlotte"
+f parent "Kate-Middleton" "Princess-Charlotte"
+
+%Facts: 14th
+f female "Savannah-Phillips"
+f parent "Peter-Phillips" "Savannah-Phillips"
+f parent "Autumn-Kelly" "Savannah-Phillips"
+
+%Facts: 15th
+f female "Isla-Phillips"
+f parent "Peter-Phillips" "Isla-Phillips"
+f parent "Autumn-Kelly" "Isla-Phillips"
+
+%Facts: 17th
+f male "Mia-Grace-Tindall"
+f parent "Zara-Phillips" "Mia-Grace-Tindall"
+f parent "Mike-Tindall" "Mia-Grace-Tindall"
+
+% ---------------------------------------------Rules---------------------------------------
+r husband Person Wife : married Person Wife , male Person , female Wife
+
+r wife Person Husband : married Person Husband , female Person , male Husband
+
+r father Parent Child : parent Parent Child , male Parent
+
+r mother Parent Child : parent Parent Child , female Parent
+
+r child Child Parent : parent Parent Child
+
+r son Child Parent : child Child Parent , male Child
+
+r daughter Child Parent : child Child Parent , female Child
+
+r grandparent GP GC : parent GP P , parent P  GC
+
+r grandmother GM GC : grandparent GM GC , female GM
+
+r grandfather GF GC : grandparent GF GC , male GF
+
+r grandchild GC GP : grandparent GP GC
+
+r grandson GS GP :  grandchild GS GP , male GS
+
+r granddaughter GD GP : grandchild GD GP , female GS
+
+r sibling Person1 Person2 : parent P Person1 , parent P Person2 , not Person1 Person2
+
+r brother Person Sibling : sibling Person Sibling , male Person
+
+r sister Person Sibling : sibling Person Sibling , female Person
+	
+r aunt Person NieceNephew : parent X NieceNephew , sister Person X
+	
+r uncle Person NieceNephew : parent X NieceNephew , brother Person X
+	
+r niece_or_nephew Person AuntUncle : parent X Person , sibling X AuntUncle
+
+r niece Person AuntUncle : female Person , niece_or_nephew Person AuntUncle 
+
+r nephew Person AuntUncle : male Person , niece_or_nephew Person AuntUncle
+
+
+%---------------------------------------Quests-----------------------------------
+? wife A "Prince-Charles"
+
+? male "Autumn-Kelly"
+
+? mother B "Kate-Middleton"
+
+? father C "Kate-Middleton"
+
+? parent D "Isla-Phillips"
+
+? wife E "Zara-Phillips"
+
+? son X "Prince-William"
+
+? daughter X "Peter-Phillips"
+
+? grandparent X "Prince-Eugenie"
+
+? aunt X "Zara-Phillips"
+
+? daughter X "Mia-Grace-Tindall"
+
+? aunt X "Isla-Phillips"
+
+? uncle X "Peter-Phillips"
+
+? husband "Timothy-Laurence" "Sophie-Rhys-jones"
+
+? parent "Queen-Elizabeth-II" "Sarah-Ferguson"
+
+? uncle "Captain-Mark-Phillips" "Prince-Andrew"
+
+? niece X "Autumn-Kelly"
+
+? mother "Princess-Diana" "Kate-Middleton"
+
+? married "Prince-Harry" "Autumn-Kelly"
+
+? mother X "Prince-Charles"
+
+? grandparent X "Tom"
+
+? grandmother X "Mia-Grace-Tindall"
+
+? grandson X "Queen-Elizabeth-II"
+
+? sibling "Tom" "Captain-Mark-Phillips"

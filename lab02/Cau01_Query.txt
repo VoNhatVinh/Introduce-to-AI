@@ -1,0 +1,71 @@
+﻿%1. Ai là vợ của Prince Charles?
+wife(A, 'Prince Charles').
+
+%2. Autumn Kelly có phải là nam không?
+male('Autumn Kelly').
+
+%3. Ai là mẹ của Kate Middleton?
+mother(B, 'Kate Middleton').
+
+%4. Ai là bố của Kate Middleton?
+father(C, 'Kate Middleton').
+
+%5. Isla Phillips là con của ai?
+parent(D, 'Isla Phillips').
+
+%6. Vợ của Zara Phillips là ai?
+wife(E, 'Zara Phillips').
+
+%7. Con trai của Prince William là ai?
+son(X, 'Prince William').
+
+%8. Peter Phillips có con gái không?
+daughter(X, 'Peter Phillips').
+
+%9. Ông của Princess Eugenie là ai?
+grandparent(X, 'Prince Eugenie').
+
+%10. Dì/cô của Zara Phillips là ai?
+aunt(X, 'Zara Phillips').
+
+%11. Mia Grace Tindall có chị/ em gái không?
+daughter(X, 'Mia Grace Tindall').
+
+%12. Cô/ dì của Isla Phillips là ai?
+aunt(X, 'Isla Phillips').
+
+%13. Peter Phillips cố phải là cậu/ chú của Timothy Laurence không?
+uncle('Peter Phillips', Timothy Laurence).
+
+%14. Sophie Rhys-jones có chồng là Timothy Laurence phải không?
+husband('Timothy Laurence', 'Sophie Rhys-jones').
+
+%15. Nữ hoàng Alizabeth II có con là Sarah Ferguson phải không?
+parent('Queen Elizabeth II', 'Sarah Ferguson').
+
+%16. Prince Andrew có chú là Captain Mark Phillips phải không?
+uncle('Captain Mark Phillips','Prince Andrew').
+
+%17. Cháu gái của Autumn Kelly là ai?
+niece(X, 'Autumn Kelly').
+
+%18. Princess Diana là mẹ của Kate Middleton phải không?
+mother('Princess Diana', 'Kate Middleton').
+
+%19. Prince Harry đã kết hôn với Autumn Kelly phải không?
+married('Prince Harry', 'Autumn Kelly').
+
+%20. Ai là mẹ của Prince Charles?
+mother(X, 'Prince Charles').
+
+%21. Ông của Tom là ai?
+grandparent(X,'Tom').
+
+%22. Bà của Mia Grace Tindall là ai?
+grandmother(X, 'Mia Grace Tindall').
+
+%23. Cháu của Alizabeth II?
+grandson(X, 'Queen Elizabeth II').
+
+%24. Captain Mark Phillips và Tom có phải là anh em ruột không
+sibling('Tom', 'Captain Mark Phillips').
